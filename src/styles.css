@@ -71,27 +71,27 @@
 :root {
   --radius: 0.125rem;
 
-  /* Background / canvas: elegant off-white / cream */
-  --background: oklch(0.96 0.012 82);
+  /* Background / canvas: warm beige */
+  --background: oklch(0.82 0.035 78);
   --foreground: oklch(0.10 0.005 75);
 
-  /* Cards sit slightly lighter on the cream canvas */
-  --card: oklch(0.98 0.010 82);
+  /* Cards sit slightly lighter on the beige canvas */
+  --card: oklch(0.86 0.030 78);
   --card-foreground: oklch(0.10 0.005 75);
-  --popover: oklch(0.98 0.010 82);
+  --popover: oklch(0.86 0.030 78);
   --popover-foreground: oklch(0.10 0.005 75);
 
   /* Primary: premium black for strong sections, headings, navigation */
   --primary: oklch(0.10 0.005 75);
-  --primary-foreground: oklch(0.96 0.012 82);
+  --primary-foreground: oklch(0.88 0.025 80);
 
-  /* Secondary: soft warm cream for subtle surfaces */
-  --secondary: oklch(0.92 0.018 80);
+  /* Secondary: lighter beige/cream for subtle surfaces */
+  --secondary: oklch(0.88 0.025 80);
   --secondary-foreground: oklch(0.10 0.005 75);
 
-  /* Muted: gentle cream-grey for lower-emphasis areas */
-  --muted: oklch(0.90 0.016 80);
-  --muted-foreground: oklch(0.42 0.012 75);
+  /* Muted: deeper beige for lower-emphasis areas */
+  --muted: oklch(0.78 0.030 78);
+  --muted-foreground: oklch(0.38 0.012 75);
 
   /* Accent: warm beige for highlights, borders, details */
   --accent: oklch(0.76 0.055 78);
