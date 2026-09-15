@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Build the responsive Aluvera one-page website with all requested sections.
-- [ ] Add 17 service cards and complete interactive details.
-- [ ] Add supplied logo and professional imagery.
-- [ ] Add all requested clickable contact actions.
+- [x] Build the responsive Aluvera one-page website with all requested sections.
+- [x] Add 17 service cards and complete interactive details.
+- [x] Add supplied logo and professional imagery.
+- [x] Add all requested clickable contact actions.
 - [ ] Verify desktop and mobile layouts and interactions.
