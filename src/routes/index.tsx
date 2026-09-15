@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Check, Instagram, Mail, MapPin, Menu, MessageCircle, Music2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/aluvera-logo.jfif.asset.json";
+import logoImage from "@/assets/aluvera-logo-circle.png";
 import doorsImage from "@/assets/aluminium-doors.jpg";
 import windowsImage from "@/assets/aluminium-windows.jpg";
 import facadeImage from "@/assets/glass-facade.jpg";
@@ -79,7 +79,7 @@ function Index() {
 
   return (
     <main className="overflow-x-hidden bg-background text-foreground">
-      <header className="absolute inset-x-0 top-0 z-30 border-b border-hero-foreground/20 text-hero-foreground">
+      <header className="absolute inset-x-0 top-0 z-30 border-b border-border text-foreground">
         <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center px-5 sm:px-8 lg:px-12">
           <button className="flex min-w-0 items-center gap-3 text-left" onClick={() => scrollTo("home")} aria-label="Go to home">
             <span className="text-sm font-semibold uppercase tracking-brand sm:text-base">Aluvera</span>
@@ -87,21 +87,19 @@ function Index() {
           <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-widest md:flex" aria-label="Main navigation">
             <button onClick={() => scrollTo("services")}>Services</button><button onClick={() => scrollTo("solutions")}>Solutions</button><button onClick={() => scrollTo("team")}>Team</button><button onClick={() => scrollTo("contact")}>Contact</button>
           </nav>
-          <Button variant="ghost" size="icon" className="border-hero-foreground/30 text-hero-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation"><Menu className="size-5" /></Button>
+          <Button variant="ghost" size="icon" className="border-border text-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation"><Menu className="size-5" /></Button>
         </div>
-        {menuOpen && <nav className="grid gap-1 border-t border-hero-foreground/20 bg-primary px-5 py-4 md:hidden" aria-label="Mobile navigation">{["services", "solutions", "team", "contact"].map(item => <button key={item} onClick={() => scrollTo(item)} className="py-3 text-left text-xs font-medium uppercase tracking-widest">{item}</button>)}</nav>}
+        {menuOpen && <nav className="grid gap-1 border-t border-border bg-background px-5 py-4 md:hidden" aria-label="Mobile navigation">{["services", "solutions", "team", "contact"].map(item => <button key={item} onClick={() => scrollTo(item)} className="py-3 text-left text-xs font-medium uppercase tracking-widest">{item}</button>)}</nav>}
       </header>
 
-      <section id="home" className="relative flex min-h-[92svh] items-end bg-primary text-hero-foreground">
-        <img src={doorsImage} alt="Modern aluminium entrance door" className="absolute inset-0 h-full w-full object-cover opacity-50" width={1920} height={1280} />
-        <div className="absolute inset-0 bg-hero-shade" />
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-end gap-10 px-5 pb-12 pt-32 sm:px-8 sm:pb-16 lg:grid-cols-[0.8fr_1.2fr] lg:px-12 lg:pb-20">
-          <img src={logoAsset.url} alt="Aluvera Aluminium & Decor Works logo" className="h-44 w-44 object-contain sm:h-52 sm:w-52" />
+      <section id="home" className="flex min-h-[92svh] items-center bg-background pt-20 text-foreground">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-12">
+          <img src={logoImage} alt="Aluvera Aluminium & Decor Works circular logo" className="size-56 object-contain sm:size-72 lg:size-80" />
           <div className="max-w-3xl lg:justify-self-end">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-brand text-accent">United Arab Emirates · Established 2021</p>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-brand text-accent-strong">United Arab Emirates · Established 2021</p>
             <h1 className="font-display text-4xl font-medium uppercase leading-tight sm:text-6xl lg:text-7xl">Aluvera Aluminium Works</h1>
-            <p className="mt-5 text-sm uppercase tracking-brand text-hero-foreground/75">Aluminium &amp; Decor Works</p>
-            <div className="mt-9 flex flex-wrap gap-3"><Button onClick={() => scrollTo("services")} className="bg-accent text-accent-foreground hover:bg-accent/90">Our Services <ArrowRight className="size-4" /></Button><Button variant="outline" onClick={() => scrollTo("contact")} className="border-hero-foreground/50 text-hero-foreground hover:bg-hero-foreground hover:text-foreground">Contact Us</Button></div>
+            <p className="mt-5 max-w-xl font-display text-2xl leading-snug text-muted-foreground sm:text-3xl">Aluminium works shaped for spaces that deserve a lasting impression</p>
+            <div className="mt-9 flex flex-wrap gap-3"><Button onClick={() => scrollTo("services")}>Our Services <ArrowRight className="size-4" /></Button><Button variant="outline" onClick={() => scrollTo("contact")}>Contact Us</Button></div>
           </div>
         </div>
       </section>
