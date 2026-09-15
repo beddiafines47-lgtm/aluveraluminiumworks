@@ -4,4 +4,5 @@
 - [x] Add 17 service cards and complete interactive details.
 - [x] Add supplied logo and professional imagery.
 - [x] Add all requested clickable contact actions.
-- [ ] Verify desktop and mobile layouts and interactions.
+- [x] Verify desktop and mobile layouts and interactions.
+- [ ] Replace the five team initials with real profile photos once the user uploads them.
