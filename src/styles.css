@@ -10,7 +10,7 @@
  * Only three colour families are used:
  *   • Premium Black
  *   • Elegant Off-White / Cream
- *   • Warm Beige
+ *   • Light Brown
  *
  * All tokens are derived from these three hues. No blue, green, red,
  * purple, or other bright colours are used.
@@ -63,6 +63,7 @@
   --color-team: var(--team);
   --color-team-foreground: var(--team-foreground);
   --color-accent-strong: var(--accent-strong);
+  --color-overlay: var(--overlay);
   --background-image-hero-shade: linear-gradient(90deg, oklch(0.08 0.005 70 / 82%), oklch(0.08 0.005 70 / 25%));
   --shadow-modal: 0 30px 80px oklch(0.08 0.005 70 / 22%);
   --tracking-brand: 0.18em;
