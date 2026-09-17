@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Check, Instagram, Mail, MapPin, Menu, MessageCircle, Music2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/aluvera-logo-circle.png";
-import windowsImage from "@/assets/aluminium-windows.jpg";
-import outdoorImage from "@/assets/outdoor-aluminium.jpg";
-import metalImage from "@/assets/custom-metal-glass.jpg";
-import roofImage from "@/assets/glass-roof-decor.jpg";
 import service01Asset from "@/assets/service-01-aluminium-doors.png.asset.json";
 import service02Asset from "@/assets/service-02-aluminium-windows.png.asset.json";
 import service03Asset from "@/assets/service-03-glass-doors.png.asset.json";
@@ -15,6 +11,15 @@ import service05Asset from "@/assets/service-05-shopfronts.png.asset.json";
 import service06Asset from "@/assets/service-06-glass-partitions.png.asset.json";
 import service07Asset from "@/assets/service-07-glass-railings.png.asset.json";
 import service08Asset from "@/assets/service-08-shower-glass.png.asset.json";
+import showerImage from "@/assets/service-08-shower-enclosure.jpg";
+import pergolaImage from "@/assets/service-09-aluminium-pergola.jpg";
+import louversImage from "@/assets/service-11-aluminium-louvers.jpg";
+import claddingImage from "@/assets/service-12-aluminium-cladding.jpg";
+import skylightImage from "@/assets/service-13-skylight-glass-roof.jpg";
+import mirrorsImage from "@/assets/service-14-decorative-mirrors.jpg";
+import castAluminiumImage from "@/assets/service-15-cast-aluminium.jpg";
+import fabricationImage from "@/assets/service-16-custom-fabrication.jpg";
+import maintenanceImage from "@/assets/service-17-maintenance.jpg";
 
 type Service = { title: string; description: string; details: string[]; label?: string; image: string };
 
@@ -26,16 +31,16 @@ const services: Service[] = [
   { title: "Shopfronts", description: "Custom aluminium and glass shopfronts designed for retail stores, restaurants, cafés, salons, showrooms, and commercial spaces.", details: ["Aluminium Shopfronts", "Glass Shopfronts", "Shop Entrance Doors", "Sliding Shopfronts", "Automatic Shopfront Doors"], image: service05Asset.url },
   { title: "Glass Partitions", description: "Modern glass partition systems for offices, clinics, commercial spaces, and residential interiors.", details: ["Frameless Partitions", "Framed Partitions", "Single-Glazed Partitions", "Double-Glazed Partitions", "Office Glass Partitions", "Glass Partition Doors"], image: service06Asset.url },
   { title: "Glass Railings & Balustrades", description: "Safe and stylish glass railing systems for stairs, balconies, terraces, and pool areas.", details: ["Frameless Glass Railings", "Aluminium & Glass Railings", "Glass Balustrades", "Staircase Glass Railings", "Balcony Glass Railings", "Pool Glass Fencing"], image: service07Asset.url },
-  { title: "Shower Glass & Enclosures", description: "Custom shower glass solutions designed to create modern, clean, and functional bathrooms.", details: ["Frameless Shower Enclosures", "Framed Shower Enclosures", "Sliding Shower Doors", "Hinged Shower Doors", "Custom Shower Glass"], image: service08Asset.url },
-  { title: "Aluminium Pergolas", description: "Custom aluminium pergolas designed for villas, gardens, terraces, rooftops, and outdoor living spaces.", details: ["Fixed Pergolas", "Louvered Pergolas", "Motorized Pergolas", "Aluminium Pergolas with Glass", "Custom Outdoor Structures"], image: outdoorImage },
-  { title: "Canopies & Shading Systems", description: "Durable aluminium structures designed to provide shade and protection for outdoor areas.", details: ["Car Parking Canopies", "Entrance Canopies", "Walkway Canopies", "Outdoor Shading", "Aluminium Sunshades"], image: outdoorImage },
-  { title: "Aluminium Louvers", description: "Architectural aluminium louver systems designed for shading, privacy, ventilation, and modern façade design.", label: "Applications include", details: ["Building Facades", "Villa Facades", "Privacy Screens", "Air-Conditioning Concealment", "Decorative Architectural Louvers"], image: outdoorImage },
-  { title: "Aluminium Cladding", description: "Aluminium composite panel solutions for modern building and commercial façades.", label: "Applications include", details: ["Building Facades", "Shopfronts", "Commercial Buildings", "Columns", "Soffits", "Decorative Exterior Cladding"], image: metalImage },
-  { title: "Skylights & Glass Roofs", description: "Custom aluminium and glass skylight systems that bring natural light into residential and commercial spaces.", details: ["Flat Skylights", "Pyramid Skylights", "Glass Roofs", "Atrium Glazing", "Custom Skylight Systems"], image: roofImage },
-  { title: "Decorative Glass & Mirrors", description: "Custom glass and mirror solutions for interior and architectural applications.", details: ["Decorative Glass", "Frosted Glass", "Tinted Glass", "Fluted Glass", "Custom Mirrors", "Backlit Mirrors", "Decorative Mirror Panels"], image: roofImage },
-  { title: "Cast Aluminium", description: "Custom cast aluminium solutions for architectural, decorative, and outdoor applications.", label: "Applications include", details: ["Aluminium Gates", "Fences", "Balustrades", "Decorative Columns", "Architectural Details", "Outdoor Furniture", "Custom Cast Aluminium Designs"], image: metalImage },
-  { title: "Custom Aluminium Fabrication", description: "Bespoke aluminium fabrication for unique residential, commercial, and architectural requirements.", details: ["Custom Aluminium Structures", "Decorative Screens", "CNC Aluminium Designs", "Custom Frames", "Architectural Features", "Bespoke Aluminium Products"], image: metalImage },
-  { title: "Aluminium & Glass Maintenance", description: "Professional maintenance and repair services to keep aluminium and glass installations functioning safely and efficiently.", details: ["Door & Window Repairs", "Glass Replacement", "Roller & Wheel Replacement", "Lock & Handle Replacement", "Hinge Replacement", "Silicone Replacement", "Sliding System Repairs", "Leakage & Alignment Repairs"], image: windowsImage },
+  { title: "Shower Glass & Enclosures", description: "Custom shower glass solutions designed to create modern, clean, and functional bathrooms.", details: ["Frameless Shower Enclosures", "Framed Shower Enclosures", "Sliding Shower Doors", "Hinged Shower Doors", "Custom Shower Glass"], image: showerImage },
+  { title: "Aluminium Pergolas", description: "Custom aluminium pergolas designed for villas, gardens, terraces, rooftops, and outdoor living spaces.", details: ["Fixed Pergolas", "Louvered Pergolas", "Motorized Pergolas", "Aluminium Pergolas with Glass", "Custom Outdoor Structures"], image: pergolaImage },
+  { title: "Canopies & Shading Systems", description: "Durable aluminium structures designed to provide shade and protection for outdoor areas.", details: ["Car Parking Canopies", "Entrance Canopies", "Walkway Canopies", "Outdoor Shading", "Aluminium Sunshades"], image: service08Asset.url },
+  { title: "Aluminium Louvers", description: "Architectural aluminium louver systems designed for shading, privacy, ventilation, and modern façade design.", label: "Applications include", details: ["Building Facades", "Villa Facades", "Privacy Screens", "Air-Conditioning Concealment", "Decorative Architectural Louvers"], image: louversImage },
+  { title: "Aluminium Cladding", description: "Aluminium composite panel solutions for modern building and commercial façades.", label: "Applications include", details: ["Building Facades", "Shopfronts", "Commercial Buildings", "Columns", "Soffits", "Decorative Exterior Cladding"], image: claddingImage },
+  { title: "Skylights & Glass Roofs", description: "Custom aluminium and glass skylight systems that bring natural light into residential and commercial spaces.", details: ["Flat Skylights", "Pyramid Skylights", "Glass Roofs", "Atrium Glazing", "Custom Skylight Systems"], image: skylightImage },
+  { title: "Decorative Glass & Mirrors", description: "Custom glass and mirror solutions for interior and architectural applications.", details: ["Decorative Glass", "Frosted Glass", "Tinted Glass", "Fluted Glass", "Custom Mirrors", "Backlit Mirrors", "Decorative Mirror Panels"], image: mirrorsImage },
+  { title: "Cast Aluminium", description: "Custom cast aluminium solutions for architectural, decorative, and outdoor applications.", label: "Applications include", details: ["Aluminium Gates", "Fences", "Balustrades", "Decorative Columns", "Architectural Details", "Outdoor Furniture", "Custom Cast Aluminium Designs"], image: castAluminiumImage },
+  { title: "Custom Aluminium Fabrication", description: "Bespoke aluminium fabrication for unique residential, commercial, and architectural requirements.", details: ["Custom Aluminium Structures", "Decorative Screens", "CNC Aluminium Designs", "Custom Frames", "Architectural Features", "Bespoke Aluminium Products"], image: fabricationImage },
+  { title: "Aluminium & Glass Maintenance", description: "Professional maintenance and repair services to keep aluminium and glass installations functioning safely and efficiently.", details: ["Door & Window Repairs", "Glass Replacement", "Roller & Wheel Replacement", "Lock & Handle Replacement", "Hinge Replacement", "Silicone Replacement", "Sliding System Repairs", "Leakage & Alignment Repairs"], image: maintenanceImage },
 ];
 
 const solutions = [
