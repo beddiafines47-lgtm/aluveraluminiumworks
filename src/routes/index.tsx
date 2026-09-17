@@ -3,26 +3,30 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Check, Instagram, Mail, MapPin, Menu, MessageCircle, Music2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/aluvera-logo-circle.png";
-import doorsImage from "@/assets/aluminium-doors.jpg";
 import windowsImage from "@/assets/aluminium-windows.jpg";
-import facadeImage from "@/assets/glass-facade.jpg";
-import interiorImage from "@/assets/interior-glass.jpg";
-import railingImage from "@/assets/glass-railing.jpg";
 import outdoorImage from "@/assets/outdoor-aluminium.jpg";
 import metalImage from "@/assets/custom-metal-glass.jpg";
 import roofImage from "@/assets/glass-roof-decor.jpg";
+import service01Asset from "@/assets/service-01-aluminium-doors.png.asset.json";
+import service02Asset from "@/assets/service-02-aluminium-windows.png.asset.json";
+import service03Asset from "@/assets/service-03-glass-doors.png.asset.json";
+import service04Asset from "@/assets/service-04-facades.png.asset.json";
+import service05Asset from "@/assets/service-05-shopfronts.png.asset.json";
+import service06Asset from "@/assets/service-06-glass-partitions.png.asset.json";
+import service07Asset from "@/assets/service-07-glass-railings.png.asset.json";
+import service08Asset from "@/assets/service-08-shower-glass.png.asset.json";
 
 type Service = { title: string; description: string; details: string[]; label?: string; image: string };
 
 const services: Service[] = [
-  { title: "Aluminium Doors", description: "Custom-designed aluminium doors for villas, apartments, offices, shops, and commercial properties.", details: ["Sliding Doors", "Hinged Doors", "Folding / Bi-Fold Doors", "Pivot Doors", "Lift & Slide Doors", "Automatic Doors", "Aluminium & Glass Doors"], image: doorsImage },
-  { title: "Aluminium Windows", description: "High-quality aluminium window systems designed for durability, functionality, and thermal performance.", details: ["Sliding Windows", "Casement Windows", "Fixed Windows", "Tilt & Turn Windows", "Awning Windows", "Double-Glazed Windows", "Thermal Break Windows"], image: windowsImage },
-  { title: "Glass Doors", description: "Elegant and functional glass door solutions for residential and commercial spaces.", details: ["Frameless Glass Doors", "Sliding Glass Doors", "Hinged Glass Doors", "Pivot Glass Doors", "Automatic Glass Doors"], image: interiorImage },
-  { title: "Aluminium & Glass Facades", description: "Modern façade solutions that enhance the appearance, performance, and value of buildings.", details: ["Curtain Wall Systems", "Stick Curtain Wall", "Unitized Curtain Wall", "Structural Glazing", "Spider Glazing", "Aluminium & Glass Facades"], image: facadeImage },
-  { title: "Shopfronts", description: "Custom aluminium and glass shopfronts designed for retail stores, restaurants, cafés, salons, showrooms, and commercial spaces.", details: ["Aluminium Shopfronts", "Glass Shopfronts", "Shop Entrance Doors", "Sliding Shopfronts", "Automatic Shopfront Doors"], image: facadeImage },
-  { title: "Glass Partitions", description: "Modern glass partition systems for offices, clinics, commercial spaces, and residential interiors.", details: ["Frameless Partitions", "Framed Partitions", "Single-Glazed Partitions", "Double-Glazed Partitions", "Office Glass Partitions", "Glass Partition Doors"], image: interiorImage },
-  { title: "Glass Railings & Balustrades", description: "Safe and stylish glass railing systems for stairs, balconies, terraces, and pool areas.", details: ["Frameless Glass Railings", "Aluminium & Glass Railings", "Glass Balustrades", "Staircase Glass Railings", "Balcony Glass Railings", "Pool Glass Fencing"], image: railingImage },
-  { title: "Shower Glass & Enclosures", description: "Custom shower glass solutions designed to create modern, clean, and functional bathrooms.", details: ["Frameless Shower Enclosures", "Framed Shower Enclosures", "Sliding Shower Doors", "Hinged Shower Doors", "Custom Shower Glass"], image: roofImage },
+  { title: "Aluminium Doors", description: "Custom-designed aluminium doors for villas, apartments, offices, shops, and commercial properties.", details: ["Sliding Doors", "Hinged Doors", "Folding / Bi-Fold Doors", "Pivot Doors", "Lift & Slide Doors", "Automatic Doors", "Aluminium & Glass Doors"], image: service01Asset.url },
+  { title: "Aluminium Windows", description: "High-quality aluminium window systems designed for durability, functionality, and thermal performance.", details: ["Sliding Windows", "Casement Windows", "Fixed Windows", "Tilt & Turn Windows", "Awning Windows", "Double-Glazed Windows", "Thermal Break Windows"], image: service02Asset.url },
+  { title: "Glass Doors", description: "Elegant and functional glass door solutions for residential and commercial spaces.", details: ["Frameless Glass Doors", "Sliding Glass Doors", "Hinged Glass Doors", "Pivot Glass Doors", "Automatic Glass Doors"], image: service03Asset.url },
+  { title: "Aluminium & Glass Facades", description: "Modern façade solutions that enhance the appearance, performance, and value of buildings.", details: ["Curtain Wall Systems", "Stick Curtain Wall", "Unitized Curtain Wall", "Structural Glazing", "Spider Glazing", "Aluminium & Glass Facades"], image: service04Asset.url },
+  { title: "Shopfronts", description: "Custom aluminium and glass shopfronts designed for retail stores, restaurants, cafés, salons, showrooms, and commercial spaces.", details: ["Aluminium Shopfronts", "Glass Shopfronts", "Shop Entrance Doors", "Sliding Shopfronts", "Automatic Shopfront Doors"], image: service05Asset.url },
+  { title: "Glass Partitions", description: "Modern glass partition systems for offices, clinics, commercial spaces, and residential interiors.", details: ["Frameless Partitions", "Framed Partitions", "Single-Glazed Partitions", "Double-Glazed Partitions", "Office Glass Partitions", "Glass Partition Doors"], image: service06Asset.url },
+  { title: "Glass Railings & Balustrades", description: "Safe and stylish glass railing systems for stairs, balconies, terraces, and pool areas.", details: ["Frameless Glass Railings", "Aluminium & Glass Railings", "Glass Balustrades", "Staircase Glass Railings", "Balcony Glass Railings", "Pool Glass Fencing"], image: service07Asset.url },
+  { title: "Shower Glass & Enclosures", description: "Custom shower glass solutions designed to create modern, clean, and functional bathrooms.", details: ["Frameless Shower Enclosures", "Framed Shower Enclosures", "Sliding Shower Doors", "Hinged Shower Doors", "Custom Shower Glass"], image: service08Asset.url },
   { title: "Aluminium Pergolas", description: "Custom aluminium pergolas designed for villas, gardens, terraces, rooftops, and outdoor living spaces.", details: ["Fixed Pergolas", "Louvered Pergolas", "Motorized Pergolas", "Aluminium Pergolas with Glass", "Custom Outdoor Structures"], image: outdoorImage },
   { title: "Canopies & Shading Systems", description: "Durable aluminium structures designed to provide shade and protection for outdoor areas.", details: ["Car Parking Canopies", "Entrance Canopies", "Walkway Canopies", "Outdoor Shading", "Aluminium Sunshades"], image: outdoorImage },
   { title: "Aluminium Louvers", description: "Architectural aluminium louver systems designed for shading, privacy, ventilation, and modern façade design.", label: "Applications include", details: ["Building Facades", "Villa Facades", "Privacy Screens", "Air-Conditioning Concealment", "Decorative Architectural Louvers"], image: outdoorImage },
