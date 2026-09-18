@@ -20,6 +20,11 @@ import mirrorsImage from "@/assets/service-14-decorative-mirrors.jpg";
 import castAluminiumImage from "@/assets/service-15-cast-aluminium.jpg";
 import fabricationImage from "@/assets/service-16-custom-fabrication.jpg";
 import maintenanceImage from "@/assets/service-17-maintenance.jpg";
+import teamMohamedAsset from "@/assets/team-mohamed-al-arjaa.jpg.asset.json";
+import teamFawzyAsset from "@/assets/team-fawzy-alqedra.jpg.asset.json";
+import teamImenAsset from "@/assets/team-imen-beddiaf.jpg.asset.json";
+import teamYasmineAsset from "@/assets/team-yasmine-oukacha.png.asset.json";
+
 
 type Service = { title: string; description: string; details: string[]; label?: string; image: string };
 
@@ -52,10 +57,13 @@ const solutions = [
 ];
 
 const team = [
-  ["MA", "Mohmmed Al Arjaa", "CEO"], ["FA", "Fawzy Alqedra", "Project Manager"],
-  ["SA", "Stephen Asante", "Supervisor"], ["BI", "Beddiaf Imen", "Social Media Manager"],
-  ["YO", "Yasmine Oukacha", "Public Relations Manager"],
+  { name: "Mohmmed Al Arjaa", role: "CEO", image: teamMohamedAsset.url },
+  { name: "Fawzy Alqedra", role: "Project Manager", image: teamFawzyAsset.url },
+  { name: "Stephen Asante", role: "Supervisor", initials: "SA" },
+  { name: "Beddiaf Imen", role: "Social Media Manager", image: teamImenAsset.url },
+  { name: "Yasmine Oukacha", role: "Public Relations Manager", image: teamYasmineAsset.url },
 ];
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -139,9 +147,26 @@ function Index() {
 
       <section id="team" className="scroll-mt-16 bg-secondary px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto max-w-7xl"><SectionHeading number="04" title="Our Team" />
-          <div className="mt-12 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-5">{team.map(([initials, name, role]) => <article key={name} className="bg-secondary"><div className="grid aspect-[4/5] place-items-center bg-team text-team-foreground"><span className="font-display text-5xl">{initials}</span></div><div className="border-t border-border py-5 pr-3"><h3 className="font-display text-lg leading-tight">{name}</h3><p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{role}</p></div></article>)}</div>
+          <div className="mt-12 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-5">
+            {team.map((member) => (
+              <article key={member.name} className="bg-secondary">
+                <div className="grid aspect-[4/5] place-items-center overflow-hidden bg-team text-team-foreground">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} loading="lazy" className="h-full w-full object-cover" />
+                  ) : (
+                    <span className="font-display text-5xl">{member.initials}</span>
+                  )}
+                </div>
+                <div className="border-t border-border py-5 pr-3">
+                  <h3 className="font-display text-lg leading-tight">{member.name}</h3>
+                  <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{member.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
+
 
       <section id="contact" className="scroll-mt-16 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto max-w-7xl"><SectionHeading number="05" title="Contact Us" />
