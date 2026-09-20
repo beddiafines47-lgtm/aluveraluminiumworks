@@ -171,7 +171,7 @@ function Index() {
       <section id="contact" className="scroll-mt-16 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto max-w-7xl"><SectionHeading number="05" title="Contact Us" />
           <div className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
-            <ContactLink icon={<Instagram />} label="Instagram" href="https://www.instagram.com/aluvera.group?stkn=amlnbWtyd29paGlk" />
+            <ContactLink icon={<Instagram />} label="Instagram" href="https://www.instagram.com/aluvera.ae?stkn=azc2OXoyeHBqajlr" />
             <ContactLink icon={<Music2 />} label="TikTok" href="https://www.tiktok.com/@aluvera.ae?_r=1&_t=ZS-99lPQqIsImz" />
             <ContactLink icon={<MapPin />} label="Google Maps" href="https://maps.app.goo.gl/8V9cYkoyz4U2ftmS7?g_st=iw" />
             <ContactLink icon={<MessageCircle />} label="WhatsApp" href="https://wa.me/971569009690?text=Hello%20ALUVERA%2C%20I%20would%20like%20to%20inquire%20about%20your%20projects%20and%20services." />
