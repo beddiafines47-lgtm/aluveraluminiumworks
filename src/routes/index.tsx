@@ -23,6 +23,7 @@ import maintenanceImage from "@/assets/service-17-maintenance.jpg";
 import teamMohamedAsset from "@/assets/team-mohamed-al-arjaa.png.asset.json";
 import teamFawzyAsset from "@/assets/team-fawzy-alqedra.jpg.asset.json";
 import teamImenAsset from "@/assets/team-imen-beddiaf.jpg.asset.json";
+import teamStephenAsset from "@/assets/team-stephen-asante.jpg.asset.json";
 import teamYasmineAsset from "@/assets/team-yasmine-oukacha.png.asset.json";
 
 
