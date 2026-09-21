@@ -60,7 +60,7 @@ const solutions = [
 const team = [
   { name: "Mohmmed Al Arjaa", role: "CEO", image: teamMohamedAsset.url },
   { name: "Fawzy Alqedra", role: "Project Manager", image: teamFawzyAsset.url },
-  { name: "Stephen Asante", role: "Supervisor", initials: "SA" },
+  { name: "Stephen Asante", role: "Supervisor", image: teamStephenAsset.url },
   { name: "Beddiaf Imen", role: "Social Media Manager", image: teamImenAsset.url },
   { name: "Yasmine Oukacha", role: "Public Relations Manager", image: teamYasmineAsset.url },
 ];
