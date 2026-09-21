@@ -152,11 +152,7 @@ function Index() {
             {team.map((member) => (
               <article key={member.name} className="bg-secondary">
                 <div className="grid aspect-[4/5] place-items-center overflow-hidden bg-team text-team-foreground">
-                  {member.image ? (
-                    <img src={member.image} alt={member.name} loading="lazy" className="h-full w-full object-cover" />
-                  ) : (
-                    <span className="font-display text-5xl">{member.initials}</span>
-                  )}
+                  <img src={member.image} alt={member.name} loading="lazy" className="h-full w-full object-cover" />
                 </div>
                 <div className="border-t border-border py-5 pr-3">
                   <h3 className="font-display text-lg leading-tight">{member.name}</h3>
