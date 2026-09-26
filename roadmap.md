@@ -5,4 +5,5 @@
 - [x] Add supplied logo and professional imagery.
 - [x] Add all requested clickable contact actions.
 - [x] Verify desktop and mobile layouts and interactions.
-- [~] Replace the five team initials with real profile photos (4 added; Stephen Asante still pending).
+- [x] Replace the team initials with real profile photos for all five original members.
+- [x] Add the Accounting Manager to the team with his supplied photo.

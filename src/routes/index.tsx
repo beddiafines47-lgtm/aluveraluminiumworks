@@ -25,6 +25,7 @@ import teamFawzyAsset from "@/assets/team-fawzy-alqedra.jpg.asset.json";
 import teamImenAsset from "@/assets/team-imen-beddiaf.jpg.asset.json";
 import teamStephenAsset from "@/assets/team-stephen-asante.jpg.asset.json";
 import teamYasmineAsset from "@/assets/team-yasmine-oukacha.png.asset.json";
+import teamAccountingAsset from "@/assets/team-accounting-manager.jpg.asset.json";
 
 
 type Service = { title: string; description: string; details: string[]; label?: string; image: string };
@@ -57,12 +58,13 @@ const solutions = [
   ["Maintenance", "Reliable repair and maintenance services for existing aluminium and glass installations."],
 ];
 
-const team = [
+const team: { name: string; role?: string; image: string }[] = [
   { name: "Mohmmed Al Arjaa", role: "CEO", image: teamMohamedAsset.url },
   { name: "Fawzy Alqedra", role: "Project Manager", image: teamFawzyAsset.url },
   { name: "Stephen Asante", role: "Supervisor", image: teamStephenAsset.url },
   { name: "Beddiaf Imen", role: "Social Media Manager", image: teamImenAsset.url },
   { name: "Yasmine Oukacha", role: "Public Relations Manager", image: teamYasmineAsset.url },
+  { name: "Accounting Manager", image: teamAccountingAsset.url },
 ];
 
 
@@ -148,7 +150,7 @@ function Index() {
 
       <section id="team" className="scroll-mt-16 bg-secondary px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="mx-auto max-w-7xl"><SectionHeading number="04" title="Our Team" />
-          <div className="mt-12 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-12 grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-6">
             {team.map((member) => (
               <article key={member.name} className="bg-secondary">
                 <div className="grid aspect-[4/5] place-items-center overflow-hidden bg-team text-team-foreground">
@@ -156,7 +158,7 @@ function Index() {
                 </div>
                 <div className="border-t border-border py-5 pr-3">
                   <h3 className="font-display text-lg leading-tight">{member.name}</h3>
-                  <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{member.role}</p>
+                  {member.role && <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{member.role}</p>}
                 </div>
               </article>
             ))}
