@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Aluvera Aluminium Works" },
       { name: "description", content: "Premium aluminium and decor works in the UAE." },
       { name: "author", content: "Aluvera Aluminium Works" },
+      { name: "google-site-verification", content: "XH4Al-FXqs_DARrwAKSNpAZZDNCBeNAe_fyqIH9vYss" },
       { property: "og:title", content: "Aluvera Aluminium Works" },
       { property: "og:description", content: "Premium aluminium and decor works in the UAE." },
       { property: "og:type", content: "website" },
