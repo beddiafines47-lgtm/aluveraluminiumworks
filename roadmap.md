@@ -9,3 +9,4 @@
 - [x] Add the Accounting Manager to the team with his supplied photo.
 - [x] Show Abdallah Kachta's name with the Accounting Manager role on his team card.
 - [x] Correct the team names to Mohammed Alarja and Abdullah Qashta.
+- [x] Investigate photo loading issues — all 24 photos verified loading on preview and published site; awaiting user's specifics on what looks wrong.
