@@ -2,52 +2,28 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Check, Instagram, Mail, MapPin, Menu, MessageCircle, Music2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoImage from "@/assets/aluvera-logo-circle.png";
-import service01Asset from "@/assets/service-01-aluminium-doors.png.asset.json";
-import service02Asset from "@/assets/service-02-aluminium-windows.png.asset.json";
-import service03Asset from "@/assets/service-03-glass-doors.png.asset.json";
-import service04Asset from "@/assets/service-04-facades.png.asset.json";
-import service05Asset from "@/assets/service-05-shopfronts.png.asset.json";
-import service06Asset from "@/assets/service-06-glass-partitions.png.asset.json";
-import service07Asset from "@/assets/service-07-glass-railings.png.asset.json";
-import service08Asset from "@/assets/service-08-shower-glass.png.asset.json";
-import showerImage from "@/assets/service-08-shower-enclosure.jpg";
-import pergolaImage from "@/assets/service-09-aluminium-pergola.jpg";
-import louversImage from "@/assets/service-11-aluminium-louvers.jpg";
-import claddingImage from "@/assets/service-12-aluminium-cladding.jpg";
-import skylightImage from "@/assets/service-13-skylight-glass-roof.jpg";
-import mirrorsImage from "@/assets/service-14-decorative-mirrors.jpg";
-import castAluminiumImage from "@/assets/service-15-cast-aluminium.jpg";
-import fabricationImage from "@/assets/service-16-custom-fabrication.jpg";
-import maintenanceImage from "@/assets/service-17-maintenance.jpg";
-import teamMohamedAsset from "@/assets/team-mohamed-al-arjaa.jpg.asset.json";
-import teamFawzyAsset from "@/assets/team-fawzy-alqedra.jpg.asset.json";
-import teamImenAsset from "@/assets/team-imen-beddiaf.jpg.asset.json";
-import teamStephenAsset from "@/assets/team-stephen-asante.jpg.asset.json";
-import teamYasmineAsset from "@/assets/team-yasmine-oukacha.png.asset.json";
-import teamAccountingAsset from "@/assets/team-accounting-manager.jpg.asset.json";
 
 
 type Service = { title: string; description: string; details: string[]; label?: string; image: string };
 
 const services: Service[] = [
-  { title: "Aluminium Doors", description: "Custom-designed aluminium doors for villas, apartments, offices, shops, and commercial properties.", details: ["Sliding Doors", "Hinged Doors", "Folding / Bi-Fold Doors", "Pivot Doors", "Lift & Slide Doors", "Automatic Doors", "Aluminium & Glass Doors"], image: service01Asset.url },
-  { title: "Aluminium Windows", description: "High-quality aluminium window systems designed for durability, functionality, and thermal performance.", details: ["Sliding Windows", "Casement Windows", "Fixed Windows", "Tilt & Turn Windows", "Awning Windows", "Double-Glazed Windows", "Thermal Break Windows"], image: service02Asset.url },
-  { title: "Glass Doors", description: "Elegant and functional glass door solutions for residential and commercial spaces.", details: ["Frameless Glass Doors", "Sliding Glass Doors", "Hinged Glass Doors", "Pivot Glass Doors", "Automatic Glass Doors"], image: service03Asset.url },
-  { title: "Aluminium & Glass Facades", description: "Modern façade solutions that enhance the appearance, performance, and value of buildings.", details: ["Curtain Wall Systems", "Stick Curtain Wall", "Unitized Curtain Wall", "Structural Glazing", "Spider Glazing", "Aluminium & Glass Facades"], image: service04Asset.url },
-  { title: "Shopfronts", description: "Custom aluminium and glass shopfronts designed for retail stores, restaurants, cafés, salons, showrooms, and commercial spaces.", details: ["Aluminium Shopfronts", "Glass Shopfronts", "Shop Entrance Doors", "Sliding Shopfronts", "Automatic Shopfront Doors"], image: service05Asset.url },
-  { title: "Glass Partitions", description: "Modern glass partition systems for offices, clinics, commercial spaces, and residential interiors.", details: ["Frameless Partitions", "Framed Partitions", "Single-Glazed Partitions", "Double-Glazed Partitions", "Office Glass Partitions", "Glass Partition Doors"], image: service06Asset.url },
-  { title: "Glass Railings & Balustrades", description: "Safe and stylish glass railing systems for stairs, balconies, terraces, and pool areas.", details: ["Frameless Glass Railings", "Aluminium & Glass Railings", "Glass Balustrades", "Staircase Glass Railings", "Balcony Glass Railings", "Pool Glass Fencing"], image: service07Asset.url },
-  { title: "Shower Glass & Enclosures", description: "Custom shower glass solutions designed to create modern, clean, and functional bathrooms.", details: ["Frameless Shower Enclosures", "Framed Shower Enclosures", "Sliding Shower Doors", "Hinged Shower Doors", "Custom Shower Glass"], image: showerImage },
-  { title: "Aluminium Pergolas", description: "Custom aluminium pergolas designed for villas, gardens, terraces, rooftops, and outdoor living spaces.", details: ["Fixed Pergolas", "Louvered Pergolas", "Motorized Pergolas", "Aluminium Pergolas with Glass", "Custom Outdoor Structures"], image: pergolaImage },
-  { title: "Canopies & Shading Systems", description: "Durable aluminium structures designed to provide shade and protection for outdoor areas.", details: ["Car Parking Canopies", "Entrance Canopies", "Walkway Canopies", "Outdoor Shading", "Aluminium Sunshades"], image: service08Asset.url },
-  { title: "Aluminium Louvers", description: "Architectural aluminium louver systems designed for shading, privacy, ventilation, and modern façade design.", label: "Applications include", details: ["Building Facades", "Villa Facades", "Privacy Screens", "Air-Conditioning Concealment", "Decorative Architectural Louvers"], image: louversImage },
-  { title: "Aluminium Cladding", description: "Aluminium composite panel solutions for modern building and commercial façades.", label: "Applications include", details: ["Building Facades", "Shopfronts", "Commercial Buildings", "Columns", "Soffits", "Decorative Exterior Cladding"], image: claddingImage },
-  { title: "Skylights & Glass Roofs", description: "Custom aluminium and glass skylight systems that bring natural light into residential and commercial spaces.", details: ["Flat Skylights", "Pyramid Skylights", "Glass Roofs", "Atrium Glazing", "Custom Skylight Systems"], image: skylightImage },
-  { title: "Decorative Glass & Mirrors", description: "Custom glass and mirror solutions for interior and architectural applications.", details: ["Decorative Glass", "Frosted Glass", "Tinted Glass", "Fluted Glass", "Custom Mirrors", "Backlit Mirrors", "Decorative Mirror Panels"], image: mirrorsImage },
-  { title: "Cast Aluminium", description: "Custom cast aluminium solutions for architectural, decorative, and outdoor applications.", label: "Applications include", details: ["Aluminium Gates", "Fences", "Balustrades", "Decorative Columns", "Architectural Details", "Outdoor Furniture", "Custom Cast Aluminium Designs"], image: castAluminiumImage },
-  { title: "Custom Aluminium Fabrication", description: "Bespoke aluminium fabrication for unique residential, commercial, and architectural requirements.", details: ["Custom Aluminium Structures", "Decorative Screens", "CNC Aluminium Designs", "Custom Frames", "Architectural Features", "Bespoke Aluminium Products"], image: fabricationImage },
-  { title: "Aluminium & Glass Maintenance", description: "Professional maintenance and repair services to keep aluminium and glass installations functioning safely and efficiently.", details: ["Door & Window Repairs", "Glass Replacement", "Roller & Wheel Replacement", "Lock & Handle Replacement", "Hinge Replacement", "Silicone Replacement", "Sliding System Repairs", "Leakage & Alignment Repairs"], image: maintenanceImage },
+  { title: "Aluminium Doors", description: "Custom-designed aluminium doors for villas, apartments, offices, shops, and commercial properties.", details: ["Sliding Doors", "Hinged Doors", "Folding / Bi-Fold Doors", "Pivot Doors", "Lift & Slide Doors", "Automatic Doors", "Aluminium & Glass Doors"], image: "/service-01-aluminium-doors.png" },
+  { title: "Aluminium Windows", description: "High-quality aluminium window systems designed for durability, functionality, and thermal performance.", details: ["Sliding Windows", "Casement Windows", "Fixed Windows", "Tilt & Turn Windows", "Awning Windows", "Double-Glazed Windows", "Thermal Break Windows"], image: "/service-02-aluminium-windows.png" },
+  { title: "Glass Doors", description: "Elegant and functional glass door solutions for residential and commercial spaces.", details: ["Frameless Glass Doors", "Sliding Glass Doors", "Hinged Glass Doors", "Pivot Glass Doors", "Automatic Glass Doors"], image: "/service-03-glass-doors.png" },
+  { title: "Aluminium & Glass Facades", description: "Modern façade solutions that enhance the appearance, performance, and value of buildings.", details: ["Curtain Wall Systems", "Stick Curtain Wall", "Unitized Curtain Wall", "Structural Glazing", "Spider Glazing", "Aluminium & Glass Facades"], image: "/service-04-facades.png" },
+  { title: "Shopfronts", description: "Custom aluminium and glass shopfronts designed for retail stores, restaurants, cafés, salons, showrooms, and commercial spaces.", details: ["Aluminium Shopfronts", "Glass Shopfronts", "Shop Entrance Doors", "Sliding Shopfronts", "Automatic Shopfront Doors"], image: "/service-05-shopfronts.png" },
+  { title: "Glass Partitions", description: "Modern glass partition systems for offices, clinics, commercial spaces, and residential interiors.", details: ["Frameless Partitions", "Framed Partitions", "Single-Glazed Partitions", "Double-Glazed Partitions", "Office Glass Partitions", "Glass Partition Doors"], image: "/service-06-glass-partitions.png" },
+  { title: "Glass Railings & Balustrades", description: "Safe and stylish glass railing systems for stairs, balconies, terraces, and pool areas.", details: ["Frameless Glass Railings", "Aluminium & Glass Railings", "Glass Balustrades", "Staircase Glass Railings", "Balcony Glass Railings", "Pool Glass Fencing"], image: "/service-07-glass-railings.png" },
+  { title: "Shower Glass & Enclosures", description: "Custom shower glass solutions designed to create modern, clean, and functional bathrooms.", details: ["Frameless Shower Enclosures", "Framed Shower Enclosures", "Sliding Shower Doors", "Hinged Shower Doors", "Custom Shower Glass"], image: "/service-08-shower-enclosure.jpg" },
+  { title: "Aluminium Pergolas", description: "Custom aluminium pergolas designed for villas, gardens, terraces, rooftops, and outdoor living spaces.", details: ["Fixed Pergolas", "Louvered Pergolas", "Motorized Pergolas", "Aluminium Pergolas with Glass", "Custom Outdoor Structures"], image: "/service-09-aluminium-pergola.jpg" },
+  { title: "Canopies & Shading Systems", description: "Durable aluminium structures designed to provide shade and protection for outdoor areas.", details: ["Car Parking Canopies", "Entrance Canopies", "Walkway Canopies", "Outdoor Shading", "Aluminium Sunshades"], image: "/service-08-shower-glass.png" },
+  { title: "Aluminium Louvers", description: "Architectural aluminium louver systems designed for shading, privacy, ventilation, and modern façade design.", label: "Applications include", details: ["Building Facades", "Villa Facades", "Privacy Screens", "Air-Conditioning Concealment", "Decorative Architectural Louvers"], image: "/service-11-aluminium-louvers.jpg" },
+  { title: "Aluminium Cladding", description: "Aluminium composite panel solutions for modern building and commercial façades.", label: "Applications include", details: ["Building Facades", "Shopfronts", "Commercial Buildings", "Columns", "Soffits", "Decorative Exterior Cladding"], image: "/service-12-aluminium-cladding.jpg" },
+  { title: "Skylights & Glass Roofs", description: "Custom aluminium and glass skylight systems that bring natural light into residential and commercial spaces.", details: ["Flat Skylights", "Pyramid Skylights", "Glass Roofs", "Atrium Glazing", "Custom Skylight Systems"], image: "/service-13-skylight-glass-roof.jpg" },
+  { title: "Decorative Glass & Mirrors", description: "Custom glass and mirror solutions for interior and architectural applications.", details: ["Decorative Glass", "Frosted Glass", "Tinted Glass", "Fluted Glass", "Custom Mirrors", "Backlit Mirrors", "Decorative Mirror Panels"], image: "/service-14-decorative-mirrors.jpg" },
+  { title: "Cast Aluminium", description: "Custom cast aluminium solutions for architectural, decorative, and outdoor applications.", label: "Applications include", details: ["Aluminium Gates", "Fences", "Balustrades", "Decorative Columns", "Architectural Details", "Outdoor Furniture", "Custom Cast Aluminium Designs"], image: "/service-15-cast-aluminium.jpg" },
+  { title: "Custom Aluminium Fabrication", description: "Bespoke aluminium fabrication for unique residential, commercial, and architectural requirements.", details: ["Custom Aluminium Structures", "Decorative Screens", "CNC Aluminium Designs", "Custom Frames", "Architectural Features", "Bespoke Aluminium Products"], image: "/service-16-custom-fabrication.jpg" },
+  { title: "Aluminium & Glass Maintenance", description: "Professional maintenance and repair services to keep aluminium and glass installations functioning safely and efficiently.", details: ["Door & Window Repairs", "Glass Replacement", "Roller & Wheel Replacement", "Lock & Handle Replacement", "Hinge Replacement", "Silicone Replacement", "Sliding System Repairs", "Leakage & Alignment Repairs"], image: "/service-17-maintenance.jpg" },
 ];
 
 const solutions = [
@@ -59,12 +35,12 @@ const solutions = [
 ];
 
 const team: { name: string; role?: string; image: string }[] = [
-  { name: "Mohammed Alarja", role: "CEO", image: teamMohamedAsset.url },
-  { name: "Fawzy Alqedra", role: "Project Manager", image: teamFawzyAsset.url },
-  { name: "Stephen Asante", role: "Supervisor", image: teamStephenAsset.url },
-  { name: "Beddiaf Imen", role: "Social Media Manager", image: teamImenAsset.url },
-  { name: "Yasmine Oukacha", role: "Public Relations Manager", image: teamYasmineAsset.url },
-  { name: "Abdullah Qashta", role: "Accounting Manager", image: teamAccountingAsset.url },
+  { name: "Mohammed Alarja", role: "CEO", image: "/team-mohamed-al-arjaa.jpg" },
+  { name: "Fawzy Alqedra", role: "Project Manager", image: "/team-fawzy-alqedra.jpg" },
+  { name: "Stephen Asante", role: "Supervisor", image: "/team-stephen-asante.jpg" },
+  { name: "Beddiaf Imen", role: "Social Media Manager", image: "/team-imen-beddiaf.jpg" },
+  { name: "Yasmine Oukacha", role: "Public Relations Manager", image: "/team-yasmine-oukacha.png" },
+  { name: "Abdullah Qashta", role: "Accounting Manager", image: "/team-accounting-manager.jpg" },
 ];
 
 
@@ -114,7 +90,7 @@ function Index() {
 
       <section id="home" className="flex min-h-[92svh] items-center bg-background pt-20 text-foreground">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-12">
-          <img src={logoImage} alt="Aluvera Aluminium & Decor Works circular logo" className="size-56 object-contain sm:size-72 lg:size-80" />
+          <img src="/aluvera-logo-circle.png" alt="Aluvera Aluminium & Decor Works circular logo" className="size-56 object-contain sm:size-72 lg:size-80" />
           <div className="max-w-3xl lg:justify-self-end">
             <p className="mb-5 text-xs font-semibold uppercase tracking-brand text-accent-strong">United Arab Emirates · Established 2021</p>
             <h1 className="font-display text-4xl font-medium uppercase leading-tight sm:text-6xl lg:text-7xl">Aluvera Aluminium Works</h1>
