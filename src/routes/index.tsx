@@ -38,7 +38,7 @@ const team: { name: string; role?: string; image: string }[] = [
   { name: "Mohammed Alarja", role: "CEO", image: "/team-mohamed-al-arjaa.jpg" },
   { name: "Fawzy Alqedra", role: "Project Manager", image: "/team-fawzy-alqedra.jpg" },
   { name: "Stephen Asante", role: "Supervisor", image: "/team-stephen-asante.jpg" },
-  { name: "Beddiaf Imen", role: "Social Media Manager", image: "/team-imen-beddiaf.jpg" },
+  { name: "Ines Beddiaf", role: "Social Media Manager", image: "/team-imen-beddiaf.jpg" },
   { name: "Yasmine Oukacha", role: "Public Relations Manager", image: "/team-yasmine-oukacha.png" },
   { name: "Abdullah Qashta", role: "Accounting Manager", image: "/team-accounting-manager.jpg" },
 ];

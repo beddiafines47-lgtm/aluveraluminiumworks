@@ -292,7 +292,7 @@ Project Manager
 Stephen Asante
 Supervisor
 
-Beddiaf Imen
+Ines Beddiaf
 Social Media Manager
 
 Yasmine Oukacha
