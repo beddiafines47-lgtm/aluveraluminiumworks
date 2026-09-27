@@ -44,18 +44,78 @@ const team: { name: string; role?: string; image: string }[] = [
 ];
 
 
+const SITE = "https://aluveraluminiumworks.lovable.app";
+const LOGO = `${SITE}/aluvera-logo-circle.png`;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["HomeAndConstructionBusiness", "LocalBusiness", "Organization"],
+      "@id": `${SITE}/#organization`,
+      name: "Aluvera Aluminium Works",
+      alternateName: ["ALUVERA", "Aluvera Aluminium & Decor Works", "Aluvera UAE"],
+      url: `${SITE}/`,
+      logo: LOGO,
+      image: [LOGO, ...services.map((s) => `${SITE}${s.image}`)],
+      description: "Aluvera Aluminium Works is a UAE company established in 2021, providing premium aluminium and glass works: doors, windows, facades, shopfronts, glass partitions, railings, shower enclosures, pergolas, canopies, louvers, cladding, skylights, decorative glass, cast aluminium, custom fabrication and maintenance.",
+      foundingDate: "2021",
+      telephone: "+971569009690",
+      email: "info@aluvera.ae",
+      address: { "@type": "PostalAddress", addressCountry: "AE" },
+      areaServed: { "@type": "Country", name: "United Arab Emirates" },
+      hasMap: "https://maps.app.goo.gl/8V9cYkoyz4U2ftmS7",
+      sameAs: [
+        "https://www.instagram.com/aluvera.ae",
+        "https://www.tiktok.com/@aluvera.ae",
+        "https://maps.app.goo.gl/8V9cYkoyz4U2ftmS7",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+971569009690",
+        email: "info@aluvera.ae",
+        contactType: "customer service",
+        areaServed: "AE",
+        availableLanguage: ["English", "Arabic"],
+      },
+      founder: { "@type": "Person", name: "Mohammed Alarja", jobTitle: "CEO" },
+      employee: team.map((m) => ({ "@type": "Person", name: m.name, jobTitle: m.role })),
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Aluminium & Glass Services",
+        itemListElement: services.map((s) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: s.title, description: s.description, image: `${SITE}${s.image}` },
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: `${SITE}/`,
+      name: "Aluvera Aluminium Works",
+      publisher: { "@id": `${SITE}/#organization` },
+      inLanguage: "en",
+    },
+  ],
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aluvera Aluminium Works | UAE" },
-      { name: "description", content: "Premium aluminium, glass and decorative works for residential, commercial and architectural projects in the UAE." },
-      { property: "og:title", content: "Aluvera Aluminium Works | UAE" },
-      { property: "og:description", content: "Premium aluminium, glass and decorative works in the UAE." },
+      { title: "Aluvera Aluminium Works | Official Website | UAE" },
+      { name: "description", content: "Official website of Aluvera Aluminium Works, UAE (est. 2021): aluminium doors, windows, glass facades, shopfronts, partitions, railings, pergolas and maintenance." },
+      { property: "og:site_name", content: "Aluvera Aluminium Works" },
+      { property: "og:title", content: "Aluvera Aluminium Works | Official Website | UAE" },
+      { property: "og:description", content: "Premium aluminium and glass works in the UAE since 2021." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE}/` },
+      { property: "og:image", content: LOGO },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: LOGO },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE}/` }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(orgSchema) }],
   }),
   component: Index,
 });
