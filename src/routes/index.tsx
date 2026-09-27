@@ -59,12 +59,12 @@ const solutions = [
 ];
 
 const team: { name: string; role?: string; image: string }[] = [
-  { name: "Mohmmed Al Arjaa", role: "CEO", image: teamMohamedAsset.url },
+  { name: "Mohammed Alarja", role: "CEO", image: teamMohamedAsset.url },
   { name: "Fawzy Alqedra", role: "Project Manager", image: teamFawzyAsset.url },
   { name: "Stephen Asante", role: "Supervisor", image: teamStephenAsset.url },
   { name: "Beddiaf Imen", role: "Social Media Manager", image: teamImenAsset.url },
   { name: "Yasmine Oukacha", role: "Public Relations Manager", image: teamYasmineAsset.url },
-  { name: "Abdallah Kachta", role: "Accounting Manager", image: teamAccountingAsset.url },
+  { name: "Abdullah Qashta", role: "Accounting Manager", image: teamAccountingAsset.url },
 ];
 
 
