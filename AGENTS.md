@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Serve all site imagery from `public/` using root-relative paths so external deployments do not depend on Lovable asset resolution.
