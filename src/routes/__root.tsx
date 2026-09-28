@@ -88,6 +88,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HomeAndConstructionBusiness",
+          name: "Aluvera Aluminium Works",
+          description:
+            "Aluvera is a professional aluminum and glass works company based in Ajman, United Arab Emirates, specializing in high-quality aluminum fabrication and installation.",
+          url: "https://aluvera.ae",
+          telephone: "+971569009690",
+          email: "info@aluvera.ae",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Ajman",
+            addressRegion: "Ajman",
+            addressCountry: "AE",
+          },
+          hasMap: "https://maps.app.goo.gl/8V9cYkoyz4U2ftmS7",
+          sameAs: [
+            "https://www.instagram.com/aluvera.ae",
+            "https://www.tiktok.com/@aluvera.ae",
+          ],
+          priceRange: "$$",
+        }),
+      },
+    ],
     links: [
       {
         rel: "stylesheet",
